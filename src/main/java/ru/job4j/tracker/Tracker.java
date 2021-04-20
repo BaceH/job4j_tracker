@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.io.Output;
+
 import java.util.Arrays;
 
 public class Tracker {
@@ -64,5 +66,12 @@ public class Tracker {
             size--;
         }
         return rsl;
+    }
+
+    public boolean print(Item[] items, Output output) {
+        for ( Item i : items){
+            output.println(i);
+        }
+        return true;
     }
 }
