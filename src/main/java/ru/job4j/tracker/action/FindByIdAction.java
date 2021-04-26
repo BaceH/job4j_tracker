@@ -25,7 +25,7 @@ public class FindByIdAction implements UserAction {
         Item item = tracker.findById(id);
 
         if (item != null) {
-            output.println(String.format("Item with id=%s:", id ));
+            output.println(String.format("Item with id=%s:", id));
             output.println(item);
         } else {
             output.println(String.format("Item with id=%s not found.", id));

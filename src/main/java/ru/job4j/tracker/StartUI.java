@@ -12,7 +12,7 @@ public class StartUI {
 //        System.out.println(itemFirst.toString());
 
         Output output = new ConsoleOutput();
-        Input input =new ConsoleInput();
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         ReplaceAction replaceAction = new ReplaceAction(output);
 

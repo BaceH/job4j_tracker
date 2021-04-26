@@ -23,7 +23,7 @@ public class FindByNameAction implements UserAction {
         String name = input.askStr("Enter name Item to search: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
-            output.println(String.format("Item with name=%s:", name ));
+            output.println(String.format("Item with name=%s:", name));
             tracker.print(items, output);
         } else {
             output.println(String.format("Item with name=%s not found.", name));
