@@ -1,34 +1,28 @@
 package ru.job4j.tracker;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
+@Entity
+@Table(name = "items")
 public class Item {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
-    private LocalDateTime created = LocalDateTime.now();
 
-    public Item() {
-
-    }
+    public Item() { }
 
     public Item(String name) {
         this.name = name;
     }
 
-    public Item(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,11 +35,27 @@ public class Item {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Item item = (Item) o;
+        return Objects.equals(id, item.id) && Objects.equals(name, item.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
     public String toString() {
         return "Item{"
                 + "id=" + id
                 + ", name = '" + name + '\''
-//                ", created=" + created +
                 + '}';
     }
 }
